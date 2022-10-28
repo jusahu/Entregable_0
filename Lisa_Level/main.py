@@ -1,3 +1,5 @@
+# ENTREGABLE 0: "LISA LEVEL"
+
 import requests
 import json
 import threading
@@ -10,7 +12,7 @@ import string
 # definimos la función que cuenta las veces que aparece cada palabra
 def word_count(frase, contar):
   counts = contar
-  words = frase.split() # separamos las palabras, después de un espacio cuenta una palabra nueva
+  words = frase.split()
 
   for i in words:
     if i in counts: 
@@ -32,17 +34,17 @@ while True:
 
 # creamos un nuevo directorio para cada personaje 
 # utilizamos la condición if not para eliminar el error que se producía al salir un personaje ya existente
-    if not os.path.isdir("Lisa_Level/"+character+"/"):
-      os.mkdir("Lisa_Level/"+character+"/")
+    if not os.path.isdir(character+"/"):
+      os.mkdir(character+"/")
 
 # añadimos cada imagen a su carpeta correspondiente
     img_data = requests.get(image).content
-    with open(f'Lisa_Level/{character}/{character}.png', 'wb') as handler:
+    with open(f'{character}/{character}.png', 'wb') as handler:
       handler.write(img_data)
 
 # creamos el csv de cada personaje en su carpeta correspondiente
     data = [datos[0]["character"], datos[0]["quote"]]
-    with open(f'Lisa_Level/{character}/{character}.csv', 'a') as file:
+    with open(f'{character}/{character}.csv', 'a') as file:
       writer = csv.writer(file)
       writer.writerow(data)
 
@@ -53,7 +55,7 @@ while True:
     contar = word_count(new_frase, contar)
 
 # creamos un archivo .csv para guardar el conteo de palabras
-    with open('Lisa_Level/Contador.csv', 'w') as csv_file:
+    with open('Contador.csv', 'w') as csv_file:
         writer = csv.writer(csv_file)
         for key, value in contar.items():
           writer.writerow([key, value])

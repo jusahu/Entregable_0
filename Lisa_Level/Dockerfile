@@ -1,10 +1,11 @@
 FROM python
 
 RUN apt-get update
-RUN mkdir Lisa_Level
+RUN mkdir /Lisa_Level
+WORKDIR /Lisa_Level/
 
-COPY main.py ./Lisa_Level/
-COPY requirements.txt ./Lisa_Level/
+COPY main.py .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-CMD ["python", "main.py"]
+CMD ["python", "main.py"] 

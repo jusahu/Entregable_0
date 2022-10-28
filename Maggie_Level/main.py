@@ -27,20 +27,20 @@ def pedirFrase():
 
     data = [datos[0]["character"], datos[0]["quote"]]
 
-# Generamos un archivo .csv que guarde las frases de todos los personajes:
-    with open('Maggie_Level/General/General.csv', 'a') as file:
+# Generamos un archivo .csv que guarde las frases de todos los personajes dentro de la carpeta General:
+    with open('General/General.csv', 'a') as file:
         writer = csv.writer(file)
         writer.writerow(data)
 
-# Generamos un archivo .csv que guarde las frases de Homer:
+# Generamos un archivo .csv que guarde las frases de Homer dentro de la carpeta Homer:
     if datos[0]["character"] == 'Homer Simpson':
-      with open('Maggie_Level/Homer/Homer.csv', 'a') as file:
+      with open('Homer/Homer.csv', 'a') as file:
         writer = csv.writer(file)
         writer.writerow(data)
 
-# Generamos un archivo .csv que guarde las frases de Lisa:
+# Generamos un archivo .csv que guarde las frases de Lisa dentro de la carpeta Lisa:
     elif datos[0]["character"] == 'Lisa Simpson':
-      with open('Maggie_Level/Lisa/Lisa.csv', 'a') as file:
+      with open('Lisa/Lisa.csv', 'a') as file:
         writer = csv.writer(file)
         writer.writerow(data)
     
