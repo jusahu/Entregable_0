@@ -44,6 +44,6 @@ def pedirFrase():
         writer = csv.writer(file)
         writer.writerow(data)
     
-    time.sleep(3)
+    time.sleep(30)
 
 pedirFrase()
